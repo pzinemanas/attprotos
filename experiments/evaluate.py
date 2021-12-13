@@ -162,20 +162,11 @@ def main():
             metrics = ['classification']
 
         kwargs = {}
-        if (args.model == 'APNet') | (args.model.split('/')[0] == 'APNet') | (args.model == 'LAPNet') | (args.model == 'LAPNetSED'):
-            kwargs = {
-                'custom_objects': {
-                    'PrototypeLayer': PrototypeLayer,
-                    'LocalPrototypeLayer': LocalPrototypeLayer,
-                    'LocalPrototypeLayerT': LocalPrototypeLayerT,
-                    'LocalPrototypeLayerF': LocalPrototypeLayerF,
-                    'WeightedSum': WeightedSum
-                }
-            }
         if (args.model == 'AttProtos'):
             kwargs = {
                 'custom_objects': {
                     'PrototypeReconstruction': PrototypeReconstruction,
+                    'LinearCombination': PrototypeReconstruction,
                 }
             }
         model_container = model_class(
