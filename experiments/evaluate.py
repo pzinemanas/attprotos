@@ -6,31 +6,26 @@ import numpy as np
 sys.path.append('../')
 
 # Datasets
-from attprotos.datasets import MedleySolosDb, GoogleSpeechCommands
 from dcase_models.data.datasets import UrbanSound8k, URBAN_SED, TUTSoundEvents2017, MAVD
 
 # Models
 from dcase_models.model.models import SB_CNN, MLP, SB_CNN_SED
-from attprotos.model import APNet, LAPNet, LAPNetSED, AttRNNSpeechModel, AttProtos
+from attprotos.model import AttProtos
 
 # Features
 from dcase_models.data.features import MelSpectrogram
 from attprotos.features import Openl3
 
-from attprotos.layers import PrototypeLayer, LocalPrototypeLayer, LocalPrototypeLayerT, LocalPrototypeLayerF, WeightedSum, PrototypeReconstruction
+from attprotos.layers import PrototypeReconstruction
 from dcase_models.data.data_generator import DataGenerator
 from dcase_models.util.files import load_json, load_pickle, save_pickle
 
 
 available_models = {
-    'APNet': APNet,
-    'LAPNet': LAPNet,
-    'LAPNetSED': LAPNetSED,
     'AttProtos' : AttProtos,
     'SB_CNN' : SB_CNN,
     'SB_CNN_SED' : SB_CNN_SED,
-    'MLP': MLP,
-    'AttRNNSpeechModel': AttRNNSpeechModel
+    'MLP': MLP
 }
 
 available_features = {
@@ -40,8 +35,6 @@ available_features = {
 
 available_datasets = {
     'UrbanSound8k' :  UrbanSound8k,
-    'MedleySolosDb' : MedleySolosDb,
-    'GoogleSpeechCommands' : GoogleSpeechCommands,
     'URBAN_SED': URBAN_SED,
     'TUTSoundEvents2017': TUTSoundEvents2017,
     'MAVD': MAVD
